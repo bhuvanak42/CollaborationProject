@@ -1,0 +1,108 @@
+
+	<section id="feature" class="transparent-bg">
+        
+			<div class="container">
+						<h2 class="text-uppercase">Create a new account</h2>
+						<p class="lead">Not our registered customer yet?</p>
+						
+						<div class="error" style="color: #ff0000;">{{message}}</div>
+						
+						
+						<hr>
+						<p>With registration with us new world of latest products, fantastic
+							discounts and much more opens to you! The whole process will not
+							take you more than a minute!</p>
+						<p class="text-muted">
+							If you have any questions, please feel free to , our customer service center
+							is working for you 24/7.
+						</p>
+
+						<hr>
+
+						<!-- LOOK HERE -->
+						<form class="form-signin">  
+						
+						 
+							
+					
+								<div class="form-group">
+								<label for="fullname-signup">Full Name</label>
+								
+								
+								<div class="controls docs-input-sizes">
+									<input type="text" class="form-control" name="userFullName" placeholder="userFullName" required="" autofocus=""  ng-model="userFullName"/>
+								</div> </div>
+
+
+
+								<div class="form-group">
+								<label for="name-signup">Name</label>
+								
+								
+								<div class="controls docs-input-sizes">
+									<input type="text" class="form-control" name="username" placeholder="username" required="" autofocus=""  ng-model="username"/>
+								</div> </div>
+
+
+								<div class="form-group">
+									<label for="name-signup">Phone</label>
+									
+									<div class="controls docs-input-sizes">
+										<input type="text" class="form-control" name="userPhone" placeholder="userPhone" required="" autofocus=""  ng-model="userPhone"/>
+									</div>
+								</div>
+
+
+								
+								<div class="form-group">
+									<label for="email-signup">Email</label>
+									
+									
+									<div class="controls docs-input-sizes">
+										<input type="email" class="form-control" name="userEmail" placeholder="userEmail" required="" autofocus=""  ng-model="userEmail"/>
+									</div>
+								</div>
+
+								
+
+
+								<div class="form-group">
+									<label for="password-signup">Password</label>
+									
+									
+									<div class="controls docs-input-sizes">
+										<input type="password" class="form-control" name="password" placeholder="Password" required="" ng-model="password"/>
+									</div>
+								</div>
+
+
+
+
+
+								<div class="form-group">
+									<label for="role-signup">Role</label>
+									<div class="controls docs-input-sizes">
+								<input type="text" class="form-control" name="role" placeholder="role" required="" autofocus=""  ng-model="role"/>
+								</div>
+								</div>
+
+
+							<div class="row">
+              						<div class="col-md-6">
+								<div class="form-group">
+								<div class="text-center">
+									<button class="btn btn-lg btn-primary btn-block btn-template-main pull-left" ng-click="register()">Register</button>
+								</div></div>
+								</div>
+								<div class="col-md-6">
+								<div class="form-group">
+								<div class="text-center">
+									<button class="btn btn-lg btn-primary btn-block" type="reset">Reset</button>
+								</div></div>
+								</div>
+								</div>
+							
+
+						</form>
+			</div>
+			</section>

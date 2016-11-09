@@ -1,0 +1,32 @@
+<section id="feature" class="transparent-bg">
+        
+			<div class="container">
+ <form class="form-signin">  
+      <div class="generic-container" ng-controller="loginController">
+      
+      <h4 style="font-size: 40px">Login Here</h4>
+      <h4>{{message}}</h4>
+	    username   <input type="text" class="form-control" id="username" placeholder="username" required="" autofocus=""  ng-model="username"/>
+  		password   <input type="password" class="form-control" id="password" placeholder="Password" required="" ng-model="password"/>
+     
+      	
+      	
+      				<div class="row">
+              						<div class="col-md-6">
+								<div class="form-group">
+								<div class="text-center">
+								 	<button class="btn btn-lg btn-primary btn-block" ng-click="login()">Login</button>
+								</div></div>
+								</div>
+								<div class="col-md-6">
+								<div class="form-group">
+								<div class="text-center">
+									<a href="#/" class="btn btn-lg btn-primary btn-block">Cancel</a>
+								</div></div>
+								</div>
+								</div>
+      	
+	</div>     
+</form>
+</div>
+</section>
