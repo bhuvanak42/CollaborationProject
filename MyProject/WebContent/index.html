@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="Collaboration" ng-init="blogitem=true;contact=true;addEvent=true;event=true;shortcodes=true;pricing=true;portfolio=true;blog=false;users=false;adminJobs=true;adminBlog=false;jobs=false;login=true;register=true;about=true;services=true;home=true;logout=false;chat=false">
+<html ng-app="Collaboration" ng-init="applied=false;blogitem=true;contact=true;adminEvent=false;event=true;shortcodes=true;pricing=true;portfolio=true;blog=false;users=false;adminJobs=false;adminBlog=false;jobs=false;login=true;register=true;about=true;services=true;home=true;logout=false;chat=false">
 
 <head>
     <meta charset="utf-8">
@@ -30,6 +30,10 @@
  	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    
+    
+    
     <script src="js/scriptFile.js"></script>
     
 </head><!--/head-->
@@ -90,7 +94,7 @@
               				  <li><a href="#adminJobs" ng-show="adminJobs">Admin Jobs</a></li>
                            <li><a href="#forum" ng-show="forum"><i class="fa fa-comment"></i>Forum</a></li>
                             <li><a href="#event" ng-show="event">Event</a></li>
-                            <li><a href="#addEvent" ng-show="addEvent">Add Event</a></li>
+                            <li><a href="#adminEvent" ng-show="adminEvent">Admin Event</a></li>
                            
                            
                         <li><a href="#portfolio" ng-show="portfolio">Portfolio</a></li>

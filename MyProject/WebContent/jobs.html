@@ -1,6 +1,8 @@
-{{message}}
+<br><br>
 
-  <div>
+
+{{message}}<br><br>
+
 Enter Technology:  <input type="text"  ng-model="search">&nbsp&nbsp<span class="glyphicon glyphicon-search"></span>
     <hr></hr>
     <table class="table table-striped">
@@ -11,18 +13,34 @@ Enter Technology:  <input type="text"  ng-model="search">&nbsp&nbsp<span class="
     <th>Skills Required</th>
     <th>Eligibility Criteria</th>
     <th>Date of interview</th>
+    <th>Applied?</th>
     </tr>
+        
         <tr ng-repeat="resource in jobs | filter:search">
+               
              <td>{{resource.jobId}}</td>
             <td>{{resource.company}}</td>
             <td>{{resource.role}}</td>
             <td>{{resource.skillsRequired}}</td>
             <td>{{resource.eligibilityCriteria}}</td>
             <td>{{resource.dateOfInterview}}</td>
-            <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#applyJob">Apply</button></td>
-        </tr>    
+            <td>
+            	
+            <div ng-repeat="job in jobsApplied">
+            <div ng-if="job.jobId==resource.jobId">
+            <script>$scope.apply="true";</script>
+            	<button type="button" class="btn btn-primary btn-sm">Job applied</button>
+            </div>
+            </div>
+           		<div>
+           		
+            	<button type="button" data-ng-hide="apply" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#applyJob">Apply</button>
+            	<script>$scope.apply="false";</script>
+            	</div>
+           </td></tr>    
     </table>
-    <div>
+    
+    
   <!-- Modal -->
   <div class="modal fade" id="applyJob" role="dialog">
     <div class="modal-dialog">
@@ -47,12 +65,14 @@ Enter Technology:  <input type="text"  ng-model="search">&nbsp&nbsp<span class="
       <input type="text" class="form-control" id="FullName" placeholder="Enter Registration Number" ng-model="registrationNumber" required="required">
     </div>
   </div>
-  <div class="form-group">
+  
+ <!--  <div class="form-group">
     <label class="control-label col-sm-2" for="blogDescription">Student Id</label>
     <div class="col-sm-10"> 
       <textarea class="form-control" id="graduation" placeholder="Enter Student Id" ng-model="studentId" required="required"></textarea>
     </div>
-  </div>
+  </div> -->
+  
   <div class="form-group">
     <label class="control-label col-sm-2" for="category">Certificate Number</label>
     <div class="col-sm-10"> 
@@ -61,7 +81,7 @@ Enter Technology:  <input type="text"  ng-model="search">&nbsp&nbsp<span class="
   </div>
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-primary btn-lg" ng-click="applyJob()" data-toggle="modal" data-target="#jobAppConfirmation">Apply for this job</button>
+      <button type="submit" class="btn btn-primary btn-lg" ng-click="applyJob()" data-dismiss="modal">Apply for this job</button>
     </div>
   </div>
 </form>
@@ -76,6 +96,14 @@ Enter Technology:  <input type="text"  ng-model="search">&nbsp&nbsp<span class="
     <!-- Modal -->
   <div class="modal fade" id="jobAppConfirmation" role="dialog">
     <div class="modal-dialog">
+   
+   <script type="text/javascript">
+   
+   alert("inside modal ...");
+   var res= {{job}}
+   </script> 
+   
+    
     
       <!-- Modal content-->
       <div class="modal-content">

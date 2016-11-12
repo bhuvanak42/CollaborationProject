@@ -20,6 +20,7 @@
           <th>category</th>
           <th>Edit</th>
           <th>Delete</th>
+          <th>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -32,6 +33,19 @@
          <td>{{blog.category}}</td>
         <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#viewblog" ng-click="editBlog(blog)">View</button></td>
          <td><button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="#deleteblog" ng-click="editBlog(blog)">Delete</button></td>
+         <td>
+         <div ng-if="blog.approved==1">
+            	<button type="button" class="btn btn-primary btn-sm">Posted</button>
+         </div>
+          <div ng-if="blog.approved==0">
+            	<button type="button" class="btn btn-primary btn-sm">Pending for approval</button>
+         </div>
+         <div ng-if="blog.approved==2">
+            	<button type="button" class="btn btn-primary btn-sm">Rejected</button>
+         </div>
+         
+         </td>
+         
       </tr>
        </tbody>
   </table>

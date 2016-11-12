@@ -57,10 +57,10 @@ letzChaat.config(function($routeProvider) {
 		templateUrl:"event.html",
 		controller:'eventController'
 	})
-	.when("/addEvent",
+	.when("/adminEvent",
 	{
-		templateUrl:"event.html",
-		controller:'eventController'
+		templateUrl:"adminEvent.html",
+		controller:'adminEventController'
 	})
 	.when("/blog",
 	{
@@ -338,9 +338,32 @@ letzChaat.controller("adminBlogController",function($scope,$http,$rootScope)
 			 	    .then(function (response) {$scope.blogs = response.data;});
 			}
 			
+			$scope.approveBlog=function(i)
+			{
+				var dataObj = {
+						
+						blogId:$scope.blogDataToEdit.blogId,
+						title:$scope.blogDataToEdit.title,
+						usersID:$scope.blogDataToEdit.usersID,
+						dateOfCreation:$scope.blogDataToEdit.dateOfCreation,
+						content:$scope.blogDataToEdit.content,
+						category:$scope.blogDataToEdit.category
+		 				
+		 		};
+				$http.put('http://localhost:8086/Collaboration/approveBlog/'+i, dataObj);
+				$http.get("http://localhost:8086/Collaboration/viewBlogs")
+		 	    .then(function (response) {$scope.blogs = response.data;});
+			}
+			
 		}
 
 		);
+
+
+
+
+
+
 
 letzChaat.controller('aboutController',function($scope)		
 		{
@@ -419,6 +442,95 @@ letzChaat.controller("blogController",function($scope,$http,$rootScope)
 				$http['delete']('http://localhost:8086/Collaboration/deleteBlog/'+blogDataToEdit.blogId);
 				 $http.get("http://localhost:8086/Collaboration/viewBlogs")
 			 	    .then(function (response) {$scope.blogs = response.data;});
+			}
+			
+		}
+
+		);
+letzChaat.controller("adminEventController",function($scope,$http,$rootScope)	
+		{	
+	$rootScope.login=false;
+	$rootScope.register=false;
+	$rootScope.services=false;
+	$rootScope.about=false;
+	$rootScope.home=false;
+	$rootScope.adminEvent=true;
+	$rootScope.users=true;
+	$rootScope.registeredUsers=true;
+	$rootScope.logout=true;
+	$rootScope.adminJobs=true;
+	
+	$rootScope.addEvent=true;
+	
+	
+	
+	console.log("i am in admin event controller");
+	console.log("after this");
+			 $http.get("http://localhost:8086/Collaboration/viewEvents")
+			    .then(function (response) {
+			    	
+			    	$scope.events = response.data;
+			    	
+			    	console.log("data:"+response.data);
+			    });
+			$scope.newEvent={};
+			console.log("In admin  eve  Controller");
+			$scope.addEvent=function(newEvent)
+			{
+				var dataObj = {
+						
+						eventId:$scope.eventId,
+						title:$scope.title,
+						description:$scope.description,						
+						usersID:$scope.usersID,						
+						eventDate:$scope.eventDate,	
+						venue:$scope.venue
+						
+						
+						
+		 		};
+				console.log("title:"+dataObj);
+				 var res = $http.post('http://localhost:8086/Collaboration/addEvent',dataObj);
+				 $http.get("http://localhost:8086/Collaboration/viewEvents")
+			 	    .then(function (response) {$scope.events = response.data;});
+			 		res.success(function(data, status, headers, config) {
+			 			$scope.message = data;
+			 			console.log("status:"+status);
+			 		});
+			 		 
+			};
+			$scope.editEvent=function(event)
+			{
+				console.log("inside admin editevent");
+				console.log("event:"+event);
+				$scope.eventDataToEdit=event;
+			}
+			$scope.saveEdit=function()
+			{
+				var dataObj = {
+						
+						eventId:$scope.eventDataToEdit.eventId,
+						title:$scope.eventDataToEdit.title,
+						description:$scope.eventDataToEdit.description,						
+						usersID:$scope.eventDataToEdit.usersID,						
+						eventDate:$scope.eventDataToEdit.eventDate,	
+						venue:$scope.eventDataToEdit.venue
+		 				
+		 		};
+				$http.put('http://localhost:8086/Collaboration/updateEvent', dataObj);
+				$http.get("http://localhost:8086/Collaboration/viewEvents")
+		 	    .then(function (response) {$scope.events = response.data;});
+			}
+			$scope.deleteEvent=function(eventDataToEdit)
+			{
+				console.log("delete event inside admin called");
+				title:$scope.eventDataToEdit.title;
+				console.log("title:"+eventDataToEdit.title);
+				eventId:$scope.eventDataToEdit.eventId;
+				console.log("eventId:"+eventDataToEdit.eventId);
+				$http['delete']('http://localhost:8086/Collaboration/deleteEvent/'+eventDataToEdit.eventId);
+				 $http.get("http://localhost:8086/Collaboration/viewEvents")
+			 	    .then(function (response) {$scope.events = response.data;});
 			}
 			
 		}
@@ -529,10 +641,18 @@ letzChaat.controller('userHomeController',function($scope)
 		}
 		);
 
-letzChaat.controller('adminController',function($scope)		
+letzChaat.controller('adminController',function($scope,$rootScope)		
 		{
 			
 			$scope.message="you are in admin controller";
+			
+			
+			console.log("admin Controller  called");
+		
+			
+			$rootScope.adminJobs=true;
+			$rootScope.adminEvent=true;
+			$rootScope.adminBlog=true;
 		}
 		);
 
@@ -542,6 +662,9 @@ letzChaat.controller('jobsController',function($scope,$http)
 	console.log("inside job controller");
     $http.get("http://localhost:8086/Collaboration/viewAllJobs")
     .then(function (response) {$scope.jobs = response.data;});
+    $http.get("http://localhost:8086/Collaboration/jobsApplied")
+    .then(function (response) {$scope.jobsApplied = response.data;});
+    
     
     $scope.applyJob=function()
     {
@@ -549,10 +672,23 @@ letzChaat.controller('jobsController',function($scope,$http)
     	 var jobData={
            jobId:$scope.jobId,
     	 registrationNumber:$scope.registrationNumber,
-    	 studentId:$scope.studentId,
+    	/* studentId:$scope.studentId,*/
     	 certificateNumber:$scope.certificateNumber	
     	 };
-    	 $http.post('http://localhost:8086/Collaboration/registerJob',jobData);
+  $http.post('http://localhost:8086/Collaboration/registerJob',jobData).then(function (response) {
+		 console.log("result   data:"+response.data);
+		 var r=response.data.toString();
+		 console.log("response:"+r);
+	     
+			if(r==1)
+				{
+				 console.log("job applied successfully");
+				/* $scope.apply="true";
+				 jobId:$scope.jobId;*/
+				 $scope.message="Successfully applied for the job with id "+$scope.jobId;
+				}
+  		});
+   
     }
 		}
        
