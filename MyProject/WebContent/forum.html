@@ -21,12 +21,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="blog in blogs">
-      <td>{{blog.questionId}}</td>
-        <td>{{blog.questionTitle}}</td>
-        <td>{{blog.questionDescription}}</td>
-        <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#viewblog" ng-click="editBlog(blog)">View</button></td>
-         <td><button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="#deleteblog" ng-click="editBlog(blog)">Delete</button></td>
+      <tr ng-repeat="forum in forums">
+      <td>{{forum.questionId}}</td>
+        <td>{{forum.questionTitle}}</td>
+        <td>{{forum.questionDescription}}</td>
+        <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#viewforum" ng-click="editBlog(forum)">View</button></td>
+         <td><button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="#deleteforum" ng-click="editBlog(forum)">Delete</button></td>
       </tr>
        </tbody>
   </table>
@@ -44,10 +44,10 @@
          <form class="form-horizontal">
          
                <div class="form-group">
-    <label class="control-label col-sm-2" for="blogId">Id:</label>
+    <label class="control-label col-sm-2" for="forumId">Id:</label>
     <div class="col-sm-10">
     
-    <input type="text" class="form-control" id="blogId" placeholder="blogId" required="" autofocus=""  ng-model="blogId"/>
+    <input type="text" class="form-control" id="forumId" placeholder="forumId" required="" autofocus=""  ng-model="forumId"/>
     </div>
   </div>
          
@@ -55,7 +55,7 @@
          
          
   <div class="form-group">
-    <label class="control-label col-sm-2" for="blogTitle">Title:</label>
+    <label class="control-label col-sm-2" for="forumTitle">Title:</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="title" placeholder="Enter Title" ng-model="title">
     </div>
@@ -63,14 +63,14 @@
   
   
    <div class="form-group">
-    <label class="control-label col-sm-2" for="blogTitle">dateOfCreation:</label>
+    <label class="control-label col-sm-2" for="forumTitle">dateOfCreation:</label>
     <div class="col-sm-10">
                <input type="date" class="form-control" id="dateOfCreation" placeholder="dateOfCreation" required="" autofocus=""  ng-model="dateOfCreation"/>
     </div>
   </div>
   
   <div class="form-group">
-    <label class="control-label col-sm-2" for="blogDescription">Content:</label>
+    <label class="control-label col-sm-2" for="forumDescription">Content:</label>
     <div class="col-sm-10"> 
       <textarea class="form-control" id="content" placeholder="Enter Description" ng-model="content"></textarea>
     </div>
@@ -96,7 +96,7 @@
     </div>
   </div> 
   <!-- Modal -->
-  <div class="modal fade" id="viewblog" role="dialog">
+  <div class="modal fade" id="viewforum" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -108,23 +108,23 @@
         <div class="modal-body">
          <form class="form-horizontal">
          <div class="form-group">
-    <label class="control-label col-sm-2" for="blogId">Blog_Id</label>
-    <div class="col-sm-10"> {{blogDataToEdit.blogId}}
-      <!-- <input type="text" class="form-control" id="blogId" ng-model="blogDataToEdit.blogId"> -->
+    <label class="control-label col-sm-2" for="forumId">Blog_Id</label>
+    <div class="col-sm-10"> {{forumDataToEdit.forumId}}
+      <!-- <input type="text" class="form-control" id="forumId" ng-model="forumDataToEdit.forumId"> -->
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="title">Title:</label>
-    <div class="col-sm-10">{{blogDataToEdit.title}}
-    <!--   <input type="text" class="form-control" id="title" ng-model="blogDataToEdit.title"> -->
+    <div class="col-sm-10">{{forumDataToEdit.title}}
+    <!--   <input type="text" class="form-control" id="title" ng-model="forumDataToEdit.title"> -->
     </div>
   </div>
   
   
    <div class="form-group">
-    <label class="control-label col-sm-2" for="blogTitle">dateOfCreation:</label>
-    <div class="col-sm-10">{{blogDataToEdit.dateOfCreation}}
-            <!--    <input type="date" class="form-control" id="dateOfCreation" placeholder="dateOfCreation" required="" autofocus=""  ng-model="blogDataToEdit.dateOfCreation"/> -->
+    <label class="control-label col-sm-2" for="forumTitle">dateOfCreation:</label>
+    <div class="col-sm-10">{{forumDataToEdit.dateOfCreation}}
+            <!--    <input type="date" class="form-control" id="dateOfCreation" placeholder="dateOfCreation" required="" autofocus=""  ng-model="forumDataToEdit.dateOfCreation"/> -->
     </div>
   </div>
   
@@ -132,14 +132,14 @@
   
   <div class="form-group">
     <label class="control-label col-sm-2" for="content">content:</label>
-    <div class="col-sm-10"> {{blogDataToEdit.content}}
-      <!-- <textarea class="form-control" id="content" ng-model="blogDataToEdit.content"></textarea> -->
+    <div class="col-sm-10"> {{forumDataToEdit.content}}
+      <!-- <textarea class="form-control" id="content" ng-model="forumDataToEdit.content"></textarea> -->
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="category">Category:</label>
-    <div class="col-sm-10"> {{blogDataToEdit.category}}
-      <!-- <input type="text" class="form-control" id="category" ng-model="blogDataToEdit.category"> -->
+    <div class="col-sm-10"> {{forumDataToEdit.category}}
+      <!-- <input type="text" class="form-control" id="category" ng-model="forumDataToEdit.category"> -->
     </div>
   </div>
   
@@ -158,7 +158,7 @@
     </div>
   </div>
   <!-- Modal -->
-  <div class="modal fade" id="deleteblog" role="dialog">
+  <div class="modal fade" id="deleteforum" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -168,10 +168,10 @@
           <h4 class="modal-title">Delete Blog</h4>
         </div>
         <div class="modal-body">
-         <strong >You are about to delete {{blogDataToEdit.blogId}} the blog Are you sure?</strong>
+         <strong >You are about to delete {{forumDataToEdit.forumId}} the forum Are you sure?</strong>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="deleteBlog(blogDataToEdit)">Yes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="deleteBlog(forumDataToEdit)">Yes</button>
            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
         </div>
       </div>

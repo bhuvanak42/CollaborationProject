@@ -1,7 +1,15 @@
-{{message}}
-
-  <div>
-Enter Technology:  <input type="text"  ng-model="search">&nbsp&nbsp<span class="glyphicon glyphicon-search"></span>
+<section id="feature" class="transparent-bg">
+   	<div class="container">
+ 
+    <hr>
+    <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal">Add New Job</button>
+    <h2>All Jobs</h2>
+    <span class="clearfix"></span>
+    </hr>
+    <hr>
+    </hr>
+    <hr>
+   Enter Technology:  <input type="text"  ng-model="search">&nbsp&nbsp<span class="glyphicon glyphicon-search"></span>
     <hr></hr>
     <table class="table table-striped">
     <tr>
@@ -11,8 +19,8 @@ Enter Technology:  <input type="text"  ng-model="search">&nbsp&nbsp<span class="
     <th>Skills Required</th>
     <th>Eligibility Criteria</th>
     <th>Date of interview</th>
-     <th>Approve</th>
-      <th>Disapprove</th>
+     <th>Edit</th>
+      <th>Delete</th>
     </tr>
         <tr ng-repeat="resource in jobs | filter:search">
              <td>{{resource.jobId}}</td>
@@ -21,76 +29,247 @@ Enter Technology:  <input type="text"  ng-model="search">&nbsp&nbsp<span class="
             <td>{{ resource.skillsRequired}}</td>
             <td>{{ resource.eligibilityCriteria}}</td>
             <td>{{ resource.dateOfInterview}}</td>
-            <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#applyJob">Approve</button></td>
-            <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#applyJob">Disapprove</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#editjob" ng-click="editJob(resource)">Edit</button></td>
+         <td><button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="#deletejob" ng-click="editJob(resource)">Delete</button></td>
         </tr>    
     </table>
-    <div>
+  
+  
+  
+  
   <!-- Modal -->
-  <div class="modal fade" id="applyJob" role="dialog">
+  <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Apply for this Job</h4>
+          <h4 class="modal-title">Add New Job</h4>
         </div>
         <div class="modal-body">
-          <form class="form-horizontal">
-          <div class="form-group">
-    <label class="control-label col-sm-2" for="FullName">Job ID:</label>
+        
+        
+         <form class="form-horizontal">
+         
+         
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="company">Company:</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="FullName" placeholder="Enter Job ID" ng-model="jobId" required="required">
+      <input type="text" class="form-control" id="company" placeholder="Enter company" ng-model="company">
     </div>
   </div>
+  
+  
   <div class="form-group">
-    <label class="control-label col-sm-2" for="FullName">Registration Number:</label>
+    <label class="control-label col-sm-2" for="role">role:</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="FullName" placeholder="Enter Registration Number" ng-model="registrationNumber" required="required">
+      <input type="text" class="form-control" id="role" placeholder="Enter role" ng-model="role">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-2" for="blogDescription">Student Id</label>
+    <label class="control-label col-sm-2" for="skillsRequired">skillsRequired:</label>
     <div class="col-sm-10"> 
-      <textarea class="form-control" id="graduation" placeholder="Enter Student Id" ng-model="studentId" required="required"></textarea>
+     <input type="text" class="form-control" id="skillsRequired" placeholder="Enter skillsRequired" ng-model="skillsRequired">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-2" for="category">Certificate Number</label>
+    <label class="control-label col-sm-2" for="eligibilityCriteria">eligibilityCriteria:</label>
     <div class="col-sm-10"> 
-      <input type="text" class="form-control" id="category" placeholder="Enter Certificate Number" ng-model="certificateNumber" required="required">
+      <input type="text" class="form-control" id="eligibilityCriteria" placeholder="Enter eligibilityCriteria" ng-model="eligibilityCriteria">
     </div>
   </div>
+  
+   <div class="form-group">
+    <label class="control-label col-sm-2" for="aboutCompany">aboutCompany:</label>
+    <div class="col-sm-10"> 
+      <textarea class="form-control" id="aboutCompany" placeholder="Enter aboutCompany" ng-model="aboutCompany"></textarea>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="ctc">ctc:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="ctc" placeholder="Enter ctc" ng-model="ctc">
+    </div>
+  </div>
+  
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="urlOfTheCompany">urlOfTheCompany:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="urlOfTheCompany" placeholder="Enter urlOfTheCompany" ng-model="urlOfTheCompany">
+    </div>
+  </div>
+  
+  
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="venue">addressOfTheCompany:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="addressOfTheCompany" placeholder="Enter addressOfTheCompany" ng-model="addressOfTheCompany">
+    </div>
+  </div>
+  
+   <div class="form-group">
+    <label class="control-label col-sm-2" for="dateOfInterview">dateOfInterview </label>
+    <div class="col-sm-10"> 
+    <input type="date" class="form-control" name="dateOfInterview" placeholder="dateOfInterview" required="" autofocus=""  ng-model="dateOfInterview"/>
+   </div>
+  </div>
+  
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-primary btn-lg" ng-click="applyJob()" data-toggle="modal" data-target="#jobAppConfirmation">Apply for this job</button>
+      <button type="submit" class="btn btn-primary btn-lg" ng-click="addJob()" data-dismiss="modal">Post</button>
     </div>
   </div>
-</form>
+  
+  
+  
+  
+  
+		</form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
+      
     </div>
-    <!-- Modal -->
-  <div class="modal fade" id="jobAppConfirmation" role="dialog">
+  </div>
+  
+  
+  
+  
+  
+   <!-- Modal -->
+  <div class="modal fade" id="editjob" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal description-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Job</h4>
+        </div>
+        <div class="modal-body">
+         <form class="form-horizontal">
+         
+         
+               <div class="form-group">
+    <label class="control-label col-sm-2" for="company">Company:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="company" placeholder="Enter company" ng-model="jobDataToEdit.company">
+    </div>
+  </div>
+  
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="role">role:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="role" placeholder="Enter role" ng-model="jobDataToEdit.role">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="skillsRequired">skillsRequired:</label>
+    <div class="col-sm-10"> 
+     <input type="text" class="form-control" id="skillsRequired" placeholder="Enter skillsRequired" ng-model="jobDataToEdit.skillsRequired">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="eligibilityCriteria">eligibilityCriteria:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="eligibilityCriteria" placeholder="Enter eligibilityCriteria" ng-model="jobDataToEdit.eligibilityCriteria">
+    </div>
+  </div>
+  
+   <div class="form-group">
+    <label class="control-label col-sm-2" for="aboutCompany">aboutCompany:</label>
+    <div class="col-sm-10"> 
+      <textarea class="form-control" id="aboutCompany" placeholder="Enter aboutCompany" ng-model="jobDataToEdit.aboutCompany"></textarea>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="ctc">ctc:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="ctc" placeholder="Enter ctc" ng-model="jobDataToEdit.ctc">
+    </div>
+  </div>
+  
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="urlOfTheCompany">urlOfTheCompany:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="urlOfTheCompany" placeholder="Enter urlOfTheCompany" ng-model="jobDataToEdit.urlOfTheCompany">
+    </div>
+  </div>
+  
+  
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="venue">addressOfTheCompany:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="addressOfTheCompany" placeholder="Enter addressOfTheCompany" ng-model="jobDataToEdit.addressOfTheCompany">
+    </div>
+  </div>
+  
+   <div class="form-group">
+    <label class="control-label col-sm-2" for="dateOfInterview">dateOfInterview </label>
+    <div class="col-sm-10"> 
+    <input type="date" class="form-control" name="dateOfInterview" placeholder="jobDataToEdit.dateOfInterview" required="" autofocus=""  ng-model="jobDataToEdit.dateOfInterview"/>
+   </div>
+  </div>
+  
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary btn-lg" ng-click="saveEdit()" data-dismiss="modal">Save Edit</button>
+    </div>
+  </div>
+  
+       
+  
+  
+		</form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="deletejob" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Job Application Status</h4>
+          <h4 class="modal-title">Delete Job</h4>
         </div>
         <div class="modal-body">
-       <h1>You have successfully applied for this job. We will get back to you shortly</h1>
+         <strong >You are about to delete {{jobDataToEdit.jobId}}........... the job Are you sure?</strong>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="deleteJob(jobDataToEdit)">Yes</button>
+           <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
         </div>
       </div>
+      
     </div>
-  </div>    
-</div>
+  </div>
+    </div>
+    </section>
