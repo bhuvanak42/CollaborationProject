@@ -38,7 +38,7 @@ public class JobRegistrationTest {
 		
 		jobRegistration.setJobId(119);
 		jobRegistration.setRegistrationNumber("sdfasdf");
-		jobRegistration.setStudentId("fafda");
+		jobRegistration.setStudentId(11);
 		jobRegistration.setCertificateNumber("gsefvs");
 		jobDAO.registerJob(jobRegistration);
 		

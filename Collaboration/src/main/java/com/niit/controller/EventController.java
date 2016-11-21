@@ -34,9 +34,17 @@ public class EventController {
 		return eventDao.getAllEvents();
 	}
 	@RequestMapping(value="/updateEvent",headers="Accept=application/json",method=RequestMethod.PUT)
-	public void updateEvent(@RequestBody Event event)
+	public void updateEvent(@RequestBody Event event, HttpSession session)
 	{
+		
+		/*int userId=(Integer) session.getAttribute("loggedInUserId");
+		event.setUsersID(userId);
+		System.out.println("user id inside event is "+event.getUsersID());
+		
+		System.out.println("event id is "+event.getEventId());
+		
 		System.out.println("Inside update event");
+		*/
 		eventDao.saveOrUpdateEvent(event);
 	}
 	@RequestMapping(value="/deleteEvent/{id}",headers="Accept=application/json",method=RequestMethod.DELETE)

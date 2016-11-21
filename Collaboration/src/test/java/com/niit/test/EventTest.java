@@ -1,5 +1,7 @@
 package com.niit.test;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.format.datetime.joda.LocalDateTimeParser;
 
 import com.niit.dao.EventDao;
 import com.niit.dao.UsersDetailDao;
@@ -27,7 +30,7 @@ public class EventTest {
 		UsersDetail usersDetail =userDetailsDAO.getUserById(2);
 		
 		// INSERT OBJECTS INTO DB
-
+		
 		event.setEventId("EVENT_001");
 		event.setDescription("description");
 		event.setEventDate(new Date());
@@ -36,7 +39,7 @@ public class EventTest {
 		event.setUsersID(1);
 		eventDAO.saveOrUpdateEvent(event);
 
-		event.setEventId("EVENT_002");
+		/*event.setEventId("EVENT_002");
 		event.setDescription("description");
 		event.setEventDate(new Date());
 		event.setTitle("title");
@@ -50,7 +53,7 @@ public class EventTest {
 		event.setTitle("title");
 		event.setUsersID(3);
 		event.setVenue("venue");
-		eventDAO.saveOrUpdateEvent(event);
+		eventDAO.saveOrUpdateEvent(event);*/
 		
 		/*event = eventDAO.getEventById("EVENT_001");
 		System.out.println(event.getEventId() + "\t" + event.getDescription() + "\t" + "\t" + event.getEventDate());

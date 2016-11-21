@@ -6,10 +6,18 @@ import com.niit.model.JobRegistration;
 import com.niit.model.Job;
 
 public interface JobsDao {
-   void addJob(Job job);
-   List<Job> viewJobs();
-   void deleteJob(int id);
-   void updateJob(Job job);
-   Job viewJob(int id);
-   void registerJob(JobRegistration jobRegistration);
+	void addJob(Job job);
+
+	List<JobRegistration> viewJobsApplied(int studentId);
+
+	List<Job> viewJobs();
+
+	void deleteJob(int id);
+	
+	Job viewJob(int id);
+
+	void registerJob(JobRegistration jobRegistration);
+
+	boolean isJobApplied(int studentId, int jobId);
+
 }

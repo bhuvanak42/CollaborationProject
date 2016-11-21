@@ -13,12 +13,14 @@ import org.springframework.stereotype.Component;
 public class Job {
 	@Id@GeneratedValue
 	private int jobId;
+	
 	private String company;
+	private String aboutCompany;
 	private String role;
 	private String skillsRequired;
 	private String eligibilityCriteria;
 	private String ctc;
-	private String dateOfInterview;
+	private Date dateOfInterview;
 	private String addressOfTheCompany;
 	private String urlOfTheCompany;
 	
@@ -27,6 +29,12 @@ public class Job {
 	}
 	public void setJobId(int jobId) {
 		this.jobId = jobId;
+	}
+	public String getAboutCompany() {
+		return aboutCompany;
+	}
+	public void setAboutCompany(String aboutCompany) {
+		this.aboutCompany = aboutCompany;
 	}
 	public String getCompany() {
 		return company;
@@ -58,10 +66,10 @@ public class Job {
 	public void setCtc(String ctc) {
 		this.ctc = ctc;
 	}
-	public String getDateOfInterview() {
+	public Date getDateOfInterview() {
 		return dateOfInterview;
 	}
-	public void setDateOfInterview(String dateOfInterview) {
+	public void setDateOfInterview(Date dateOfInterview) {
 		this.dateOfInterview = dateOfInterview;
 	}
 	public String getAddressOfTheCompany() {

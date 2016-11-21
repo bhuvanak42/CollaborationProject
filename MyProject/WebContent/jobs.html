@@ -30,12 +30,15 @@ Enter Technology:  <input type="text"  ng-model="search">&nbsp&nbsp<span class="
             <div ng-if="job.jobId==resource.jobId">
             	<script>
             	$scope.apply="true";
+            	
+            	break;
+            	
             	</script>
             
             	<button type="button" class="btn btn-primary btn-sm">Job applied</button>
             </div>
             </div>
-            	<button type="button" ng-hide="apply"  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#applyJob" ng-click="editJob(resource)">Apply</button>
+            	<button type="button" data-ng-hide="apply"  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#applyJob" ng-click="editJob(resource)">Apply</button>
             	
            </td></tr>    
     </table>

@@ -14,7 +14,7 @@ public class JobRegistration {
 
 private int jobId;
 private String registrationNumber;
-private String studentId;
+private int studentId;
 private String certificateNumber;
 
 
@@ -30,10 +30,10 @@ public String getRegistrationNumber() {
 public void setRegistrationNumber(String registrationNumber) {
 	this.registrationNumber = registrationNumber;
 }
-public String getStudentId() {
+public int getStudentId() {
 	return studentId;
 }
-public void setStudentId(String studentId) {
+public void setStudentId(int studentId) {
 	this.studentId = studentId;
 }
 public String getCertificateNumber() {

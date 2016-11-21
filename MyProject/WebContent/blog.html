@@ -19,7 +19,7 @@
          <th>PostedBy</th>
           <th>category</th>
           <th>Edit</th>
-          <th>Delete</th>
+          <!-- <th>Delete</th> -->
           <th>Status</th>
       </tr>
     </thead>
@@ -32,7 +32,7 @@
         <td>{{blog.usersID}}</td>
          <td>{{blog.category}}</td>
         <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#viewblog" ng-click="editBlog(blog)">View</button></td>
-         <td><button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="#deleteblog" ng-click="editBlog(blog)">Delete</button></td>
+         <!-- <td><button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="#deleteblog" ng-click="editBlog(blog)">Delete</button></td> -->
          <td>
          <div ng-if="blog.approved==1">
             	<button type="button" class="btn btn-primary btn-sm">Posted</button>

@@ -10,7 +10,6 @@
     </hr>
     <hr>
     </hr>
-   
     <table class="table table-striped">
     <thead>
       <tr>
@@ -25,29 +24,25 @@
       </tr>
     </thead>
     <tbody>
-     
-      <tr ng-repeat="forum in questions">
+      <tr ng-repeat="forum in answers">
       <td>{{forum.questionId}}</td>
-        <td>{{forum.questionTitle}}</td>
-        <td>{{forum.questionDescription}}</td>
+        <td>{{forum.userId}}</td>
+        <td>{{forum.answer}}</td>
        
         <!-- <td>{{forum.usersID}}</td>
          <td>{{forum.category}}</td> -->
          
          
-      <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#editforum" ng-click="editForum(forum)">view</button></td> 
-  <td><a href="#forumAnswers" ng-click="#forumAnswers">Forum answers</a></td> 
-      
-    
-	  <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#showForumAnswers" ng-click="editForumAnswer(forum)">view answers</button></td>
-      <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#addAns" ng-click="editForum(forum)">Add answer</button></td>
-      
-      
+          <!-- <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#editforum" ng-click="likeButton(++forum.answerLike)">Like</button></td>
+           <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#addAns" ng-click="dislikeButton(++forum.answerDislike)">Dislike</button></td> -->
+         
+         
+        <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#editforum" ng-click="editForumAnswer(forum)">view</button></td>
+           <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#addAns" ng-click="editForumAnswer(forum)">Add answer</button></td>
         <!-- <td><button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="#deleteforum" ng-click="editForum(forum)">Delete</button></td> -->
       </tr>
        </tbody>
   </table>
- 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -99,6 +94,11 @@
       
     </div>
   </div>
+  
+  
+  
+  
+  
   
   
   <!-- Modal -->
@@ -154,60 +154,6 @@
   
   
   
-  <!-- Modal -->
-  <div class="modal fade" id="addAns" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Edit Forum</h4>
-        </div>
-        <div class="modal-body">
-         <form class="form-horizontal">
-         <div class="form-group">
-    <label class="control-label col-sm-2" for="questionId">questionId:</label>
-    <div class="col-sm-10"> 
-  
-    <input type="text" class="form-control" id="forumId" ng-model="forumDataToEdit.questionId"> 
-    </div>
-  </div>
-  
-  
- 	 <div class="form-group">
-    <label class="control-label col-sm-2" for="answer">answer:</label>
-    <div class="col-sm-10">
-	 <input type="text" class="form-control" id="answer" ng-model="answer">
-    </div>
-    
-  </div>
-  
-  
-  <div class="form-group"> 
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-primary btn-lg" ng-click="addAnswer()" data-dismiss="modal">Add answer</button>
-    </div>
-  </div>
-  
-  
-</form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -240,82 +186,5 @@
   </div>
 
     </div>
-    
-    
-    
-    <!-- Modal -->
-  <div class="modal fade" id="showForumAnswers" data-dismiss="modal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">View answers</h4>
-        </div>
-        <div class="modal-body">
-         
-         <table class="table table-striped">
-    <thead>
-      <tr>
-      <th>Question Id</th>
-        <th>user id</th>
-        <th>answer</th>
-        
-         <!-- <th>PostedBy</th> -->
-        <!--   <th>category</th> -->
-          <th>View</th>
-          <!-- <th>Delete</th> -->
-      </tr>
-    </thead>
-    <tbody>
-  
-    
-    <div>
-	 <button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#addAns" ng-click="editForumAnswer(answers.forum)">Add answer</button>        
-    </div>
-    
-
-    
-      <tr ng-repeat="forum in answers">
-      <td>{{forum.questionId}}</td>
-        <td>{{forum.userId}}</td>
-        <td>{{forum.answer}}</td>
-       
-      
-        <!-- <td>{{forum.usersID}}</td>
-         <td>{{forum.category}}</td> -->
-         
-         <!-- 
-          <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#editforum" ng-click="likeButton(++forum.answerLike)">Like</button></td>
-           <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#addAns" ng-click="dislikeButton(++forum.answerDislike)">Dislike</button></td> -->
-         
-         
-        <td>
-          
-        
-        <!-- <div ng-if="forum!=null">
-           <button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#editforum" ng-click="editForumAnswer(forum)">view</button>
-           <button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#addAns" ng-click="editForumAnswer(forum)">Add answer</button>
-          </div>  -->
-           
-           </td>
-        <!-- <td><button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="#deleteforum" ng-click="editForum(forum)">Delete</button></td> -->
-      </tr>
-       </tbody>
-  </table>
-        
-       
-        
-       
-      
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
     
 

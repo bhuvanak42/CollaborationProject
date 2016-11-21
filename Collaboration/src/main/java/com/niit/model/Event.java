@@ -1,14 +1,10 @@
 package com.niit.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
 
@@ -21,7 +17,7 @@ public class Event {
 	public String title;
 	public String description;
 	public int usersID;
-	public Date eventDate;
+	public Date  eventDate;
 	public String venue;
 	
 	
@@ -51,10 +47,10 @@ public class Event {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Date getEventDate() {
+	public Date  getEventDate() {
 		return eventDate;
 	}
-	public void setEventDate(Date eventDate) {
+	public void setEventDate(Date  eventDate) {
 		this.eventDate = eventDate;
 	}
 	public String getVenue() {

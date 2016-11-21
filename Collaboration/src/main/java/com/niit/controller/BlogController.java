@@ -1,5 +1,6 @@
 package com.niit.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -23,9 +24,9 @@ public class BlogController {
 	{
 		int userId=(Integer) session.getAttribute("loggedInUserId");
 		blog.setUsersID(userId);
-		
+		blog.setDateOfCreation(new Date());
 		System.out.println("user id inside blog is "+userId);
-		
+		blog.setApproved(0);
 		blogDao.saveOrUpdateBlog(blog);
 	}
 	@RequestMapping(value="/viewBlogs",headers="Accept=application/json",method=RequestMethod.GET)
@@ -37,12 +38,22 @@ public class BlogController {
 	public void updateBlog(@RequestBody Blog blog)
 	{
 		System.out.println("Inside update blog");
+		blog.setDateOfCreation(new Date());
 		blogDao.saveOrUpdateBlog(blog);
 	}
 	@RequestMapping(value="/deleteBlog/{id}",headers="Accept=application/json",method=RequestMethod.DELETE)
 	public void deleteBlog(@PathVariable String id)
 	{
 		blogDao.delete(id);
+	}
+	
+	@RequestMapping(value="/approveBlog/{i}",headers="Accept=application/json",method=RequestMethod.PUT)
+	public void approveBlog(@RequestBody Blog blog,@PathVariable int i)
+	{
+		blog.setApproved(i);
+		System.out.println("Inside approve blog");
+		blogDao.saveOrUpdateBlog(blog);
+		
 	}
 
 }

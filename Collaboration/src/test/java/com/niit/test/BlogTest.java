@@ -31,10 +31,11 @@ public class BlogTest {
 		blog.setDateOfCreation(new Date());
 		blog.setTitle("title");
 	//	blog.setUsersID("USER_001");
+		blog.setApproved(0);
 		blog.setCategory("this is category");
 		blogDAO.saveOrUpdateBlog(blog);
 
-		blog.setBlogId("BLOG_002");
+	/*	blog.setBlogId("BLOG_002");
 		blog.setContent("Content");
 		blog.setDateOfCreation(new Date());
 		blog.setTitle("title");
@@ -52,7 +53,7 @@ public class BlogTest {
 
 		blog = blogDAO.getBlogById("BLOG_002");
 		System.out.println(blog.getContent() + "\t" + blog.getTitle() + "\t" + "\t" + blog.getDateOfCreation());
-
+*/
 		/*
 		 * boolean flag=blogDAO.delete(blog); System.out.println("delete  "
 		 * +flag);

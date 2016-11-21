@@ -22,6 +22,8 @@ public class UserController {
 	@RequestMapping(value="/addUser", method=RequestMethod.POST,headers="Accept=application/json")
 	public void addUser(@RequestBody UsersDetail usersDetail)
 	{
+		usersDetail.setRole("ROLE_USER");
+		
 		usersDetailDao.addUser(usersDetail);
 	
 	}
@@ -61,4 +63,12 @@ public class UserController {
 		 return result;
 	 }
 
+	 
+	 @RequestMapping(value="/logout",method=RequestMethod.GET,headers="Accept=application/json")
+	 public void logout(HttpSession session)
+	 {
+		 session.invalidate();
+		 System.out.println("Session logged out");
+	 }
+	 
 }
