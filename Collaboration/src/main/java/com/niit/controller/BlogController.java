@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
 import com.niit.dao.BlogDao;
 import com.niit.model.Blog;
+import com.niit.model.Job;
 
 @RestController
 public class BlogController {
@@ -25,14 +27,24 @@ public class BlogController {
 		int userId=(Integer) session.getAttribute("loggedInUserId");
 		blog.setUsersID(userId);
 		blog.setDateOfCreation(new Date());
+		
+		System.out.println("date of blog "+blog.getDateOfCreation());
+		
 		System.out.println("user id inside blog is "+userId);
 		blog.setApproved(0);
 		blogDao.saveOrUpdateBlog(blog);
 	}
 	@RequestMapping(value="/viewBlogs",headers="Accept=application/json",method=RequestMethod.GET)
-	public List<Blog> viewBlogs()
+	public String viewBlogs()
 	{
-		return blogDao.getAllBlogs();
+		
+		List<Blog> list= blogDao.getAllBlogs();
+		
+		Gson gson= new Gson();
+		String object;
+		object=gson.toJson(list);
+		
+		return object;
 	}
 	@RequestMapping(value="/updateBlog",headers="Accept=application/json",method=RequestMethod.PUT)
 	public void updateBlog(@RequestBody Blog blog)

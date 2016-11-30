@@ -1,5 +1,7 @@
 'use strict';
 var letzChaat=angular.module("Collaboration",["ngRoute"]);
+
+
 letzChaat.config(function($routeProvider) {
 	$routeProvider
 	.when("/",
@@ -308,8 +310,10 @@ letzChaat.controller("adminBlogController",function($scope,$http,$rootScope)
 						dateOfCreation:$scope.dateOfCreation,
 						content:$scope.content,
 						category:$scope.category
+						
 		 		};
 				console.log("title:"+dataObj);
+				
 				 var res = $http.post('http://localhost:8086/Collaboration/addBlog',dataObj);
 				 $http.get("http://localhost:8086/Collaboration/viewBlogs")
 			 	    .then(function (response) {$scope.blogs = response.data;});
@@ -418,6 +422,7 @@ letzChaat.controller("blogController",function($scope,$http,$rootScope)
 			    	
 			    	$scope.blogs = response.data;
 			    	
+			    	console.log("date of blog "+$scope.blogs[2].dateOfCreation);
 			    	console.log("data:"+response.data);
 			    });
 			$scope.newBlog={};

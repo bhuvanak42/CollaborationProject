@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
 import com.niit.dao.JobsDao;
 import com.niit.model.JobRegistration;
 import com.niit.model.Job;
@@ -23,12 +24,18 @@ public class JobsController {
 	public void addJob(@RequestBody Job job)
 	{
 		System.out.println("Date is  "+job.getDateOfInterview());
+		
 		jobsDao.addJob(job); 
 	}
 	@RequestMapping(value="/viewAllJobs",headers="Accept=application/json",method=RequestMethod.GET)
-	public  List<Job> viewJobs()
+	public  String viewJobs()
 	{
-		return jobsDao.viewJobs();
+		List<Job> list= jobsDao.viewJobs();
+		Gson gson= new Gson();
+		String object;
+		object=gson.toJson(list);
+		
+		return object;
 	}
 	
 	@RequestMapping(value="/jobsApplied",headers="Accept=application/json",method=RequestMethod.GET)

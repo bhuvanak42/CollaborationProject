@@ -58,6 +58,7 @@ public class UserController {
 		 
 		 if(result!=0){
 			 session.setAttribute("loggedInUser", usersDetail);
+			 session.setAttribute("loggedInUserName", usersDetail.getUsername());
 			 session.setAttribute("loggedInUserId", usersDetail.getUserId());
 		 }
 		 return result;
