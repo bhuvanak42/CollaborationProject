@@ -36,7 +36,7 @@
          
          
       <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#editforum" ng-click="editForum(forum)">view</button></td> 
-  <td><a href="#forumAnswers" ng-click="#forumAnswers">Forum answers</a></td> 
+  <td><a href="#forumAnswers" ng-click="viewForumAnswer(forum)">Forum answers</a></td> 
       
     
 	  <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#showForumAnswers" ng-click="editForumAnswer(forum)">view answers</button></td>
@@ -262,17 +262,14 @@
         <th>user id</th>
         <th>answer</th>
         
-         <!-- <th>PostedBy</th> -->
-        <!--   <th>category</th> -->
-          <th>View</th>
-          <!-- <th>Delete</th> -->
+        
       </tr>
     </thead>
     <tbody>
   
     
     <div>
-	 <button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#addAns" ng-click="editForumAnswer(answers.forum)">Add answer</button>        
+        
     </div>
     
 

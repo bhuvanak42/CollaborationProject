@@ -56,8 +56,8 @@ angular.module("Collaboration.services").service("ChatService", function($q, $ti
     
     var initialize = function() {
     	console.log("initialize in services");
-    	http://localhost:8086/MyProject/chat
-      socket.client = new SockJS(service.SOCKET_URL);
+    	/*http://localhost:8086/MyProject/chat*/ 
+    	socket.client = new SockJS(service.SOCKET_URL);
       socket.stomp = Stomp.over(socket.client);
       socket.stomp.connect({}, startListener);
       socket.stomp.onclose = reconnect;
