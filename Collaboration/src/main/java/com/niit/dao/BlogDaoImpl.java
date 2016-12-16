@@ -68,7 +68,7 @@ public class BlogDaoImpl implements BlogDao {
 	@Transactional
 	public List<Blog> getAllBlogs() {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("from Blog");
+		Query query = session.createQuery("from Blog ORDER BY blogId ASC");
 		List<Blog> blogs = query.list();
 		return blogs;
 	}

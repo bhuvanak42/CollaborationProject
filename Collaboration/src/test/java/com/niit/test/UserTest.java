@@ -20,9 +20,9 @@ public class UserTest {
 		UsersDetailDao userDetailsDAO = (UsersDetailDao) context.getBean("usersDetailDao");
 	
 		
-		//usersDetail.setUserId("USER_001");
-		/*usersDetail.setUsername("Admin Bhuvana");
-		usersDetail.setUserFullName("bhuvana");
+	/*	//usersDetail.setUserId("USER_001");
+		usersDetail.setUsername("Admin Bhuvana");
+		usersDetail.setUserFullName("Bhuvaneshwari Devi K");
 		usersDetail.setUserEmail("bhuvana@gmail.com");
 		usersDetail.setUserPhone("9325427410");
 		usersDetail.setPassword("123");
@@ -64,14 +64,14 @@ public class UserTest {
 		userDetailsDAO.addUser(usersDetail);
 	*/
 		
-		boolean valid=userDetailsDAO.isValidUser("xxx");
+		/*boolean valid=userDetailsDAO.isValidUser("xxx");
 		System.out.println("Is valid user? == "+ valid);
 		
 		List<UsersDetail> list = userDetailsDAO.getAllUsers();
 
 		for (UsersDetail u : list) {
 			System.out.println(u.getUserId() + "\t" + u.getUsername() + "\t"+ "\t" + u.getUserPhone());
-		}
+		}*/
 		context.close();
 	}
 }

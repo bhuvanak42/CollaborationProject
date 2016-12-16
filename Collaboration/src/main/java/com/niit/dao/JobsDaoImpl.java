@@ -82,15 +82,13 @@ public class JobsDaoImpl implements JobsDao {
 
 	public List<JobRegistration> viewJobsApplied(int studentId) {
 
-		String hql = "from JobRegistration where studentid=' "+studentId+"'";
+		String hql = "from JobRegistration where studentid=' "+studentId+"' order by jobId";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<JobRegistration> list = query.list();
 		if (list == null || list.isEmpty()) {
-			System.out.println("No products available");
+			
 			return null;
 		}
 		return list;
 	}
-	
-	
 }

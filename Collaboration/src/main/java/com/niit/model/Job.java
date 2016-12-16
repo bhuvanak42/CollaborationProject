@@ -20,6 +20,7 @@ public class Job {
 	private String skillsRequired;
 	private String eligibilityCriteria;
 	private String ctc;
+	
 	private Date dateOfInterview;
 	private String addressOfTheCompany;
 	private String urlOfTheCompany;

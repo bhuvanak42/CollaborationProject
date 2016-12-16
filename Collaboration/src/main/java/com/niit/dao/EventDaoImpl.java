@@ -70,7 +70,7 @@ public class EventDaoImpl implements EventDao {
 		// TODO Auto-generated method stub
 		
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("from Event");
+		Query query = session.createQuery("from Event ORDER BY eventId ASC");
 		List<Event> events = query.list();
 		return events;
 	}

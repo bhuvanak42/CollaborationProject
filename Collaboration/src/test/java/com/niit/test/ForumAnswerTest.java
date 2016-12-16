@@ -2,8 +2,10 @@ package com.niit.test;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.niit.dao.ForumAnswerDao;
 import com.niit.dao.ForumDao;
 import com.niit.model.Forum;
+import com.niit.model.ForumAnswer;
 
 public class ForumAnswerTest {
 
@@ -13,26 +15,34 @@ public class ForumAnswerTest {
 		context.scan("com.niit.*");
 		context.refresh();
 
-		Forum forum = (Forum) context.getBean("forum");
-		ForumDao forumDAO = (ForumDao) context.getBean("forumDAO");
+		/*Forum forum = (Forum) context.getBean("forum");
+		ForumDao forumDAO = (ForumDao) context.getBean("forumDAO");*/
 		
 		
-		/*ForumAnswer forumAns = (ForumAnswer) context.getBean("forumAnswer");
-		ForumAnswerDao forumAnsDAO = (ForumAnswerDao) context.getBean("forumAnswerDAO");
+		ForumAnswer answer=(ForumAnswer)context.getBean("forumAnswer");
+		ForumAnswerDao answerDAO = (ForumAnswerDao) context.getBean("forumAnswerDao");
+	
 		
-		forumAns.setForumAnswerId(12);
-		forumAns.setQuestionId(12);
-		forumAns.setUserId(12);
-		forumAns.setAnswer("answer");
-		forumAns.setLike(2);
-		forumAns.setDislike(3);
-		forumAnsDAO.saveOrUpdateForumAnswer(forumAns);*/
+		answer.setAnswerId(311);
+		answer.setQuestionId(54);
+		answer.setUserId(547);
+		answer.setAnswer("Check the file name and path correctly");
+		answer.setAnswerLike(451);
+		answer.setAnswerDislike(321);
+		answerDAO.saveOrUpdate(answer);	
+		
+		
+		/*forum.setQuestionId(1);
+		forum.setQuestionTitle("404 error");
+		forum.setQuestionDescription("File not found");
+		forumDAO.addQuestion(forum);*/
 		
 		
 		
-		forum.setQuestionDescription("qqqqq");
+		
+		/*forum.setQuestionDescription("qqqqq");
 		forum.setQuestionTitle("yyyyyyyyyy");
-		forumDAO.addQuestion(forum);
+		forumDAO.addQuestion(forum);*/
 		
 		
 		

@@ -47,9 +47,12 @@ public class BlogController {
 		return object;
 	}
 	@RequestMapping(value="/updateBlog",headers="Accept=application/json",method=RequestMethod.PUT)
-	public void updateBlog(@RequestBody Blog blog)
+	public void updateBlog(@RequestBody Blog blog, HttpSession session)
 	{
+		
 		System.out.println("Inside update blog");
+		int userId=(Integer) session.getAttribute("loggedInUserId");
+		blog.setUsersID(userId);
 		blog.setDateOfCreation(new Date());
 		blogDao.saveOrUpdateBlog(blog);
 	}
@@ -65,7 +68,6 @@ public class BlogController {
 		blog.setApproved(i);
 		System.out.println("Inside approve blog");
 		blogDao.saveOrUpdateBlog(blog);
-		
 	}
 
 }

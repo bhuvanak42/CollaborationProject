@@ -1,5 +1,7 @@
 package com.niit.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -23,6 +25,10 @@ public class JobsController {
 	@RequestMapping(value="/addJob",headers="Accept=application/json",method=RequestMethod.POST)
 	public void addJob(@RequestBody Job job)
 	{
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		
+		dateFormat.format(job.getDateOfInterview());
+		
 		System.out.println("Date is  "+job.getDateOfInterview());
 		
 		jobsDao.addJob(job); 
