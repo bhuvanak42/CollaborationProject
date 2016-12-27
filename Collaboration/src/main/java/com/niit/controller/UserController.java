@@ -12,11 +12,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.niit.dao.FriendsDAO;
 import com.niit.dao.UsersDetailDao;
+import com.niit.model.Friends;
 import com.niit.model.UsersDetail;;
 
 @RestController
 public class UserController {
+	
+	@Autowired
+	 Friends friends;
+	@Autowired
+	FriendsDAO friendsDAO;
+	
 	@Autowired
 	private UsersDetailDao usersDetailDao;
 	@RequestMapping(value="/addUser", method=RequestMethod.POST,headers="Accept=application/json")
@@ -60,6 +68,8 @@ public class UserController {
 			 session.setAttribute("loggedInUser", usersDetail);
 			 session.setAttribute("loggedInUserName", usersDetail.getUsername());
 			 session.setAttribute("loggedInUserId", usersDetail.getUserId());
+			 
+			 friendsDAO.setOnline(usersDetail.getUsername());
 		 }
 		 return result;
 	 }
@@ -68,6 +78,11 @@ public class UserController {
 	 @RequestMapping(value="/logout",method=RequestMethod.GET,headers="Accept=application/json")
 	 public void logout(HttpSession session)
 	 {
+		 UsersDetail loggedInUser=(UsersDetail) session.getAttribute("loggedInUser");
+		 //System.out.println(loggedInUser.getUsername());
+		 
+		 friendsDAO.setOffLine(loggedInUser.getUsername());
+		
 		 session.invalidate();
 		 System.out.println("Session logged out");
 	 }

@@ -16,10 +16,7 @@ public class UsersDetail {
 	@GeneratedValue
 	private int userId;
 	private String role;
-	@Transient
-	private String errorCode;
-	@Transient
-	private String errorMessage;
+	
 
 	@Size(min = 3, max = 30, message = "Size can be between 3 and 30")
 	@NotEmpty(message = "User full name can not be empty.")
@@ -43,21 +40,6 @@ public class UsersDetail {
 
 	private boolean enabled;
 
-	public String getErrorCode() {
-		return errorCode;
-	}
-
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
-	}
-
-	public String getErrorMessage() {
-		return errorMessage;
-	}
-
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
-	}
 
 	public String getRole() {
 		return role;

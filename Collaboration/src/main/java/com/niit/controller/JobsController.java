@@ -25,11 +25,16 @@ public class JobsController {
 	@RequestMapping(value="/addJob",headers="Accept=application/json",method=RequestMethod.POST)
 	public void addJob(@RequestBody Job job)
 	{
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		
-		dateFormat.format(job.getDateOfInterview());
+		//dateFormat.format(job.getDateOfInterview());
 		
-		System.out.println("Date is  "+job.getDateOfInterview());
+		//System.out.println("Date is  "+job.getDateOfInterview());
+		
+		
+		
+		
+		
 		
 		jobsDao.addJob(job); 
 	}
@@ -45,10 +50,23 @@ public class JobsController {
 	}
 	
 	@RequestMapping(value="/jobsApplied",headers="Accept=application/json",method=RequestMethod.GET)
-	public  List<JobRegistration> jobsApplied(HttpSession session)
+	public String jobsApplied(HttpSession session)
 	{
 		int userId=(Integer) session.getAttribute("loggedInUserId");
-		return jobsDao.viewJobsApplied(userId);
+		/*return jobsDao.viewJobsApplied(userId);*/
+		
+		
+
+		List<JobRegistration>  list = jobsDao.viewJobsApplied(userId);
+		Gson gson= new Gson();
+		String object;
+		object=gson.toJson(list);
+		
+		return object;
+		
+		
+		
+		
 	}
 	
 	

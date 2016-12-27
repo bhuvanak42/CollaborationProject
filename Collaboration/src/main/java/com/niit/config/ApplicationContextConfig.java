@@ -15,6 +15,8 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.dao.BlogCommentDAO;
+import com.niit.dao.BlogCommentDAOImpl;
 import com.niit.dao.BlogDao;
 import com.niit.dao.BlogDaoImpl;
 import com.niit.dao.EventDao;
@@ -23,14 +25,18 @@ import com.niit.dao.ForumAnswerDao;
 import com.niit.dao.ForumAnswerDaoImpl;
 import com.niit.dao.ForumDao;
 import com.niit.dao.ForumDaoImpl;
+import com.niit.dao.FriendsDAO;
+import com.niit.dao.FriendsDAOImpl;
 import com.niit.dao.JobsDao;
 import com.niit.dao.JobsDaoImpl;
 import com.niit.dao.UsersDetailDao;
 import com.niit.dao.UsersDetailDaoImpl;
 import com.niit.model.Blog;
+import com.niit.model.BlogComment;
 import com.niit.model.Event;
 import com.niit.model.Forum;
 import com.niit.model.ForumAnswer;
+import com.niit.model.Friends;
 import com.niit.model.Job;
 import com.niit.model.JobRegistration;
 import com.niit.model.UsersDetail;
@@ -86,6 +92,8 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(ForumAnswer.class);
 		System.out.println("inside class ..");
 		sessionBuilder.addAnnotatedClass(Blog.class);
+		sessionBuilder.addAnnotatedClass(Friends.class);
+		sessionBuilder.addAnnotatedClass(BlogComment.class);
 		sessionBuilder.addAnnotatedClass(Event.class);
 		sessionBuilder.addAnnotatedClass(Job.class);
 		sessionBuilder.addAnnotatedClass(JobRegistration.class);
@@ -125,6 +133,11 @@ public class ApplicationContextConfig {
 		return new BlogDaoImpl(sessionFactory);
 	}
 	@Autowired
+	@Bean(name = "blogCommentDAO")
+	public BlogCommentDAO getBlogCommentDao(SessionFactory sessionFactory) {
+		return new BlogCommentDAOImpl(sessionFactory);
+	}
+	@Autowired
 	@Bean(name = "forumDAO")
 	public ForumDao getForumDao(SessionFactory sessionFactory) {
 		return new ForumDaoImpl(sessionFactory);
@@ -133,5 +146,11 @@ public class ApplicationContextConfig {
 	@Bean(name = "forumAnswerDao")
 	public ForumAnswerDao getAnswerDao(SessionFactory sessionFactory) {
 		return new ForumAnswerDaoImpl(sessionFactory);
+	}
+	@Autowired
+	@Bean(name = "friendsDAO")
+	public FriendsDAO getFriendsDAO(SessionFactory sessionFactory) {
+		System.out.println("inside friendsDAO");
+		return new FriendsDAOImpl(sessionFactory);
 	}
 }

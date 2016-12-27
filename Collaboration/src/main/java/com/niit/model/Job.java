@@ -25,6 +25,20 @@ public class Job {
 	private String addressOfTheCompany;
 	private String urlOfTheCompany;
 	
+	
+	private String interviewDate;
+	
+	
+	
+	public String getInterviewDate() {
+		return interviewDate;
+	}
+	public void setInterviewDate(String interviewDate) {
+		this.interviewDate = interviewDate;
+	}
+	
+	
+	
 	public int getJobId() {
 		return jobId;
 	}

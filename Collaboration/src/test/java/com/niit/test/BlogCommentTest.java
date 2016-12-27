@@ -10,12 +10,14 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.niit.dao.BlogCommentDAO;
 import com.niit.dao.BlogDao;
 import com.niit.dao.UsersDetailDao;
 import com.niit.model.Blog;
+import com.niit.model.BlogComment;
 import com.niit.model.UsersDetail;
 
-public class BlogTest {
+public class BlogCommentTest {
 
 	public static void main(String[] args) {
 
@@ -23,49 +25,39 @@ public class BlogTest {
 		context.scan("com.niit.*");
 		context.refresh();
 
-		Blog blog = (Blog) context.getBean("blog");
-		BlogDao blogDAO = (BlogDao) context.getBean("blogDao");
+		BlogComment blogComment = (BlogComment) context.getBean("blogComment");
+		BlogCommentDAO blogCommentDAO = (BlogCommentDAO) context.getBean("blogCommentDAO");
 
 		// INSERT OBJECTS INTO DB
 
-		blog.setBlogId("BLOG_001");
-		blog.setContent("Content");
-		blog.setDateOfCreation(new Date());
 		
-				// Create an instance of SimpleDateFormat used for formatting 
-				// the string representation of date (month/day/year)
-				//DateFormat df = new SimpleDateFormat("medium");
-				
-				//DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);
-				
+		// Create an instance of SimpleDateFormat used for formatting 
+		// the string representation of date (month/day/year)
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		
+	
 		
-				DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss");
-		
-		
-		
-		
-		
-		
-				//myString = DateFormat.getDateInstance().format(myDate);
-				
-				// Get the date today using Calendar object.
-				Date today = new Date();        
-				// Using DateFormat format method we can create a string 
-				// representation of a date with the defined format.
-				String reportDate = df.format(today);
 
-				// Print what date is today!
-				System.out.println("Report Date: " + reportDate);
-				
-				
-		blog.setBlogCreationDate(reportDate);
+		// Get the date today using Calendar object.
+		Date today = new Date();        
+		// Using DateFormat format method we can create a string 
+		// representation of a date with the defined format.
+		String reportDate = df.format(today);
+
+		// Print what date is today!
+		System.out.println("Report Date: " + reportDate);
 		
-		blog.setTitle("title");
-		blog.setUsersID(389);
-		blog.setApproved(0);
-		blog.setCategory("this is category");
-		blogDAO.saveOrUpdateBlog(blog);
+		
+		
+		
+		//blog.setId("BLOG_001");
+		blogComment.setBlogID("BLOG_001");
+		blogComment.setUserID(123);
+		blogComment.setDateTime(reportDate);
+		blogComment.setBlogComment("comment");
+		blogComment.setBlogDislike(12);
+		blogComment.setBlogLike(52);
+		blogCommentDAO.save(blogComment);
 
 	/*	blog.setBlogId("BLOG_002");
 		blog.setContent("Content");

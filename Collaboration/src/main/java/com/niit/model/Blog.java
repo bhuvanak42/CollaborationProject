@@ -18,8 +18,21 @@ public class Blog {
 		private String content;
 		private String category;
 		private int approved;
+		private String blogCreationDate;
 		
 		
+		public String getBlogCreationDate() {
+			return blogCreationDate;
+		}
+
+		public void setBlogCreationDate(String blogCreationDate) {
+			this.blogCreationDate = blogCreationDate;
+		}
+
+		public int getApproved() {
+			return approved;
+		}
+
 		public int isApproved() {
 			return approved;
 		}
