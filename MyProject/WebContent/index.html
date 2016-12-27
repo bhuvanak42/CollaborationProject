@@ -1,7 +1,43 @@
 <!DOCTYPE html>
-<html ng-app="Collaboration" ng-init="applied=false;adminForum=false;forum=false;blogitem=true;contact=true;adminEvent=false;event=false;shortcodes=true;pricing=true;portfolio=true;blog=false;users=false;adminJobs=false;adminBlog=false;jobs=false;login=true;register=true;about=true;services=true;home=true;logout=false;chat=false">
+<html ng-app="Collaboration" ng-init="friends=false;applied=false;adminForum=false;forum=false;blogitem=true;contact=true;adminEvent=false;event=false;shortcodes=true;pricing=true;portfolio=true;blog=false;users=false;adminJobs=false;adminBlog=false;jobs=false;login=true;register=true;about=true;services=true;home=true;logout=false;chat=false">
 
 <head>
+<style type="text/css">
+
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+ html{
+
+	height:100%;
+	min-height:18cm;
+	width:100%;
+
+} 
+#footer {
+	background:#ffab62;
+	width:100%;
+ 	height:100px; 
+	position:relative;
+	bottom:0;
+	left:0;
+}
+
+
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+
+#content {
+	padding-bottom:10px; /* Height of the footer element */
+}
+</style>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -89,17 +125,17 @@
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#/">Home</a></li>
-                        <li><a href="#about"  ng-show="about">About Us</a></li>
-                        <li><a href="#services" ng-show="services">Services</a></li>
+                        
                         
                          <li><a href="#register" ng-show="register">Register</a></li>
                           <li><a href="#login" ng-show="login"> Login</a></li>
-                         <li><a href="#logout" ng-show="logout">Logout</a></li>
+                         
                          
                           <li><a href="#blog" ng-show="blog">Blog</a></li> 
                           <li><a href="#jobs" ng-show="jobs">Jobs</a></li>
-                          <li><a href="chat.html" ng-show="chat">chat</a></li>
-                        <!--   <li><a href="#adminForum" ng-show="adminForum">Admin Forum</a></li> -->
+                          <li><a href="chat.html" ng-show="chat">Chat</a></li>
+                          
+                        <li><a href="#adminForum" ng-show="adminForum">Admin Forum</a></li> 
                           <li><a href="#forum" ng-show="forum">Forum</a></li>
                            <!-- <li><a href="#forumAnswers" ng-show="forum">Forum answers</a></li> -->
               				<li><a href="#adminBlog" ng-show="adminBlog">Admin Blogs</a></li>
@@ -108,14 +144,25 @@
                             <li><a href="#event" ng-show="event">Event</a></li>
                             <li><a href="#adminEvent" ng-show="adminEvent">Admin Event</a></li>
                              <li><a href="chat.html">Chat</a></li>
-                           
+                             <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="friends">Friends <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#friends" ng-show="friends">Find Friends</a></li>
+                                <li><a href="#friendsRequests" ng-show="friends">Show friend requests</a></li>
+                              	<li><a href="#myFriends" ng-show="friends">My Friends</a></li>
+                                 <!--  <li><a href="#shortcodes" >Shortcodes</a></li> -->
+                            </ul>
+                        </li>
+                           <li><a href="#about"  ng-show="about">About Us</a></li>
+                        <li><a href="#services" ng-show="services">Services</a></li>
+                        <li><a href="#logout" ng-show="logout">Logout</a></li>
                         <li><a href="#portfolio" ng-show="portfolio">Portfolio</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#blog-item" ng-show="blog-item">Blog Single</a></li>
                                 <li><a href="#pricing" ng-show="pricing">Pricing</a></li>
-                                <li><a href="#404" ng-show="404">404</a></li>
+                           
                                 <li><a href="#shortcodes" ng-show="shortcodes">Shortcodes</a></li>
                             </ul>
                         </li>
@@ -133,13 +180,17 @@
     
     
     
-    <div id="main">
+    <div id="content">
 
     <!-- angular templating -->
 		<!-- this is where content will be injected -->
     <div ng-view></div>
   </div>
     
+    
+    
+    
+    <div id="footer">
     <footer id="footer" class="midnight-blue">
         <div class="container">
             <div class="row">
@@ -150,7 +201,7 @@
             </div>
         </div>
     </footer><!--/#footer-->
-
+</div>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>

@@ -12,13 +12,13 @@
     <table class="table table-striped">
     <thead>
       <tr>
-      <th>event id</th>
+      <th>Event id</th>
         <th>Title</th>
         <th>Content</th>
         <th>Date</th>
          <th>PostedBy</th>
-          <th>venue</th>
-          <th>View event</th>
+          <th>Venue</th>
+          <th>View</th>
          
       </tr>
     </thead>
@@ -27,7 +27,7 @@
       <td>{{event.eventId}}</td>
         <td>{{event.title}}</td>
         <td>{{event.description}}</td>
-        <td>{{event.eventDate}}</td>
+        <td>{{event.dateOfEvent}}</td>
         <td>{{event.usersID}}</td>
          <td>{{event.venue}}</td>
         <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#viewevent" ng-click="editEvent(event)">View</button></td> 
@@ -65,8 +65,9 @@
   
    <div class="form-group">
     <label class="control-label col-sm-2" for="eventDate">eventDate:</label>
-    <div class="col-sm-10">{{eventDataToEdit.eventDate}}
+    <div class="col-sm-10">{{eventDataToEdit.dateOfEvent}}
             <!--    <input type="date" class="form-control" id="eventDate" placeholder="eventDate" required="" autofocus=""  ng-model="eventDataToEdit.eventDate"/> -->
+
     </div>
   </div>
   

@@ -1,0 +1,35 @@
+ <div class="container">
+
+     <p>
+     <p>
+     <p>
+     <p>
+     
+     <p>
+     <p>
+     <p>
+     <p>
+     
+     <div class="form-group has-feedback"></div>
+     
+     Search 
+ <br><br>
+     <input type="text" ng-model="sear_text">
+     
+     
+         <div ng-repeat="user in users | filter: sear_text">
+         <br><br>
+             <fieldset>
+           
+                   
+                   <p> Friend Id: {{user.friendID}}
+                   <br>
+                   Status: {{user.status}} <br> isOnline:{{user.isOnline}}<br>
+                    <button type="button" ng-click="unfriend(user)" 
+						class="btn btn-warning btn-sm">Unfriend</button></p>
+                   
+                </fieldset>
+             </div>
+          <br><br>
+          </div>
+          

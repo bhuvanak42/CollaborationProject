@@ -1,0 +1,36 @@
+ <div class="container">
+
+     <p>
+     <p>
+     <p>
+     <p>
+     
+     <p>
+     <p>
+     <p>
+     <p>
+     
+     <div class="form-group has-feedback"></div>
+     
+     Search 
+
+     <input type="text" ng-model="sear_text">
+     
+     <br><br>
+         <div ng-repeat="user in users | filter: sear_text" ng-hide="user.userId==currentUser.userId">
+         <br><br>
+             <fieldset>
+             
+                   
+                   <p>ID: {{user.userId}} <br> Name: {{user.username}}</p>
+                     <p>Full name:{{user.userFullName}} <br> Role:{{user.role}}</p>
+                   <p>Email: {{user.userEmail}} <br> Mobile:{{user.userPhone}}</p>
+                   
+                    <br>  <button type="button" ng-click="sendFriendRequest(user)" 
+                                                        
+                       class="btn btn-warning btn-sm">Send Friend Request</button>
+                </fieldset>
+             </div>
+          <br><br>
+          </div>
+          

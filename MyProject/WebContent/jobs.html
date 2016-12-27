@@ -30,10 +30,10 @@ Enter Technology:  <input type="text"  ng-model="search">&nbsp&nbsp<span class="
             <td>{{resource.role}}</td>
             <td>{{resource.skillsRequired}}</td>
             <td>{{resource.eligibilityCriteria}}</td>
-            <td>{{resource.dateOfInterview}}</td>
+            <td>{{resource.interviewDate}}</td>
             <td>
             	
-            <div ng-repeat="job in jobsApplied">
+           <div ng-repeat="job in jobsApplied">
             <div ng-if="job.jobId==resource.jobId">
             	<script>
             	$scope.apply="true";
@@ -44,8 +44,25 @@ Enter Technology:  <input type="text"  ng-model="search">&nbsp&nbsp<span class="
             
             	<button type="button" class="btn btn-primary btn-sm">Job applied</button>
             </div>
-            </div>
-            	<button type="button" data-ng-hide="apply"  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#applyJob" ng-click="editJob(resource)">Apply</button>
+            </div> 
+            
+            
+            <!-- <div ng-repeat="job in studentJobsApplied">
+            <div ng-if="job.jobId==resource.jobId">
+            	<button type="button" class="btn btn-primary btn-sm">Job applied</button>
+           </div>
+            <div ng-if="job.jobId!=resource.jobId">
+            <button type="button" data-ng-hide="apply"  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#applyJob" ng-click="editJob(resource)">Apply</button>
+           </div>
+           
+            </div>  -->
+            
+            
+            
+            
+            
+            
+            	 <button type="button" data-ng-hide="apply"  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#applyJob" ng-click="editJob(resource)">Apply</button> 
             	
            </td></tr>    
     </table>

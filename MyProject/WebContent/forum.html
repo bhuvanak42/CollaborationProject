@@ -1,9 +1,10 @@
-<div>
-    
-    
-  
-         <hr>
-    <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal">Add New Forum</button>
+<section id="feature" class="transparent-bg">
+        
+			<div class="container">
+ 
+    <hr>
+       
+    <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal">Add New Question</button>
     <h2>All Forums</h2>
  
     <span class="clearfix"></span>
@@ -15,12 +16,14 @@
     <thead>
       <tr>
       <th>Question Id</th>
-        <th>title</th>
-        <th>Desc</th>
+        <th>Title</th>
+        <th>Description</th>
         
          <!-- <th>PostedBy</th> -->
         <!--   <th>category</th> -->
-          <th>View</th>
+          <th>View Question</th>
+          <th>View Answers</th>
+          <th>You want to add answer?</th>
           <!-- <th>Delete</th> -->
       </tr>
     </thead>
@@ -36,7 +39,7 @@
          
          
       <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#editforum" ng-click="editForum(forum)">view</button></td> 
-  <td><a href="#forumAnswers" ng-click="viewForumAnswer(forum)">Forum answers</a></td> 
+ <!--  <td><a href="#forumAnswers" ng-click="viewForumAnswer(forum)">Forum answers</a></td>  -->
       
     
 	  <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#showForumAnswers" ng-click="editForumAnswer(forum)">view answers</button></td>
@@ -112,12 +115,12 @@
           <h4 class="modal-title">Edit Forum</h4>
         </div>
         <div class="modal-body">
-         <form class="form-horizontal">
+        <!--  <form class="form-horizontal">
          <div class="form-group">
     <label class="control-label col-sm-2" for="questionId">questionId</label>
     <div class="col-sm-10"> 
     {{forumDataToEdit.questionId}}
-      <!-- <input type="text" class="form-control" id="forumId" ng-model="forumDataToEdit.forumId"> -->
+      <input type="text" class="form-control" id="forumId" ng-model="forumDataToEdit.forumId">
     </div>
   </div>
   
@@ -126,7 +129,7 @@
     <label class="control-label col-sm-2" for="questionTitle">questionTitle:</label>
     <div class="col-sm-10">
     {{forumDataToEdit.questionTitle}}
-      <!-- <input type="text" class="form-control" id="title" ng-model="forumDataToEdit.title"> -->
+      <input type="text" class="form-control" id="title" ng-model="forumDataToEdit.title">
     </div>
     
   </div>
@@ -134,11 +137,47 @@
     <label class="control-label col-sm-2" for="questionDescription">questionDescription:</label>
     <div class="col-sm-10">
     {{forumDataToEdit.questionDescription}}
-      <!-- <input type="text" class="form-control" id="title" ng-model="forumDataToEdit.title"> -->
+      <input type="text" class="form-control" id="title" ng-model="forumDataToEdit.title">
     </div>
   </div>
   
-</form>
+</form> -->
+
+
+
+<table>
+
+<tr>
+<th>Question ID
+</th>
+<td>{{forumDataToEdit.questionId}}
+</td>
+</tr>
+
+
+
+<tr>
+<th>Question Title
+</th>
+<td>{{forumDataToEdit.questionTitle}}
+</td>
+</tr>
+
+
+<tr>
+<th>Description
+</th>
+<td> {{forumDataToEdit.questionDescription}}
+</td>
+</tr>
+
+</table>
+
+
+
+
+
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -268,9 +307,9 @@
     <tbody>
   
     
-    <div>
+    <!-- <div>
         
-    </div>
+    </div> -->
     
 
     
@@ -315,4 +354,4 @@
     </div>
   </div>
     
-
+</section>
